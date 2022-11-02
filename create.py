@@ -28,10 +28,12 @@ def writeJson(csvFile):
 
             all = []
             rowData = next(reader)
-            rowData.append('sha256 of json')
             all.append(rowData)
+            all[0].remove('Hash')
+            all[0].append('Hash')
 
             for row in reader:
+                row.pop()
                 row.append(hash(f"json/{row[1]}.json"))
                 all.append(row)
 
