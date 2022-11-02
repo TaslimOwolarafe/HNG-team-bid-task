@@ -23,7 +23,7 @@ def writeJson(csvFile):
                  jsonfile.write(json.dumps(myData, indent = 4))
 
     with open(csvFile, 'r') as file:
-        with open('csv/filename.output.csv', 'w') as csvoutput:
+        with open('filename.output.csv', 'w') as csvoutput:
             writer = csv.writer(csvoutput, lineterminator='\n')
             reader = csv.reader(file)
 
