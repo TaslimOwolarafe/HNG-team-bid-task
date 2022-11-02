@@ -29,7 +29,7 @@ def writeJson(csvFile):
 
             all = []
             rowData = next(reader)
-            rowData.append('sha25 of json')
+            rowData.append('sha256 of json')
             all.append(rowData)
 
             for row in reader:
