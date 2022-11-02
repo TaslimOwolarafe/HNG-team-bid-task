@@ -6,7 +6,6 @@ def hash(file):
     with open(file,"rb") as f:
         bytes = f.read() # read entire file as bytes
         readable_hash = hashlib.sha256(bytes).hexdigest()
-        print(readable_hash)
         return readable_hash
 
 def writeJson(csvFile):
@@ -33,7 +32,6 @@ def writeJson(csvFile):
             all.append(rowData)
 
             for row in reader:
-                print(row)
                 row.append(hash(f"json/{row[1]}.json"))
                 all.append(row)
 
