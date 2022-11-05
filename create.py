@@ -1,6 +1,17 @@
 import csv
 import json
 import hashlib
+import os
+import shutil
+
+base_dir = os.path.dirname(os.path.realpath(__file__))
+
+path = os.path.join(base_dir, 'json')
+try:
+    os.mkdir(path)
+except:
+    shutil.rmtree(path)
+    os.mkdir(path)
 
 def hash(file):
     with open(file,"rb") as f:
@@ -15,11 +26,11 @@ def writeJson(csvFile):
 
         filenames = []
         for row in read:
-            filenames.append(hash(f"json/{row['Filename']}.json"))
             myData = {'format' : 'CHIP-0007'}
             myData.update(row)
-            with open(f"json/{row['Filename']}.json", 'w', encoding='utf-8') as jsonfile:
+            with open(f"json/{row['Filename']}.json", 'w+', encoding='utf-8') as jsonfile:
                  jsonfile.write(json.dumps(myData, indent = 4))
+            filenames.append(hash(f"json/{row['Filename']}.json"))
 
     with open(csvFile, 'r') as file:
         with open('filename.output.csv', 'w') as csvoutput:

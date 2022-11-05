@@ -1,5 +1,8 @@
 ## Use
 
+```bash
+git clone https://github.com/TaslimOwolarafe/HNG-team-bid-task.git
+```
 on python terminal
 ```bash
 python create.py
